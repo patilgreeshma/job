@@ -24,7 +24,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python whatsapp_job_agent.py
+        run: python telegram_agent.py
 
       - name: Auto-Commit Database Changes
         uses: stefanzweifel/git-auto-commit-action@v4

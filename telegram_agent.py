@@ -74,7 +74,9 @@ def check_and_track():
 
     for name, token in COMPANIES.items():
         # FIXED: Re-established the full formal endpoint path used by Greenhouse job boards
-        api_url = f"https://greenhouse.io{token}/jobs"
+        # api_url = f"https://greenhouse.io{token}/jobs"
+        api_url = f"https://boards-api.greenhouse.io/v1/boards/{token}/jobs"
+
         try:
             res = requests.get(api_url, timeout=10)
             if res.status_code != 200: 

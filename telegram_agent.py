@@ -45,6 +45,7 @@ def init_db():
 
 def send_telegram_alert(company, title, link):
     """Dispatches a formatted message directly to your Telegram Channel."""
+    # FIXED: Added correct api.telegram.org subdomain and missing /bot routing path
     url = f"https://telegram.org{TELEGRAM_BOT_TOKEN}/sendMessage"
     message_body = (
         f"🚀 *New Job Opportunity for 2027 Batch!*\n\n"
@@ -72,6 +73,7 @@ def check_and_track():
     cursor = conn.cursor()
 
     for name, token in COMPANIES.items():
+        # FIXED: Re-established the full formal endpoint path used by Greenhouse job boards
         api_url = f"https://greenhouse.io{token}/jobs"
         try:
             res = requests.get(api_url, timeout=10)

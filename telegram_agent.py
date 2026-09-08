@@ -46,7 +46,8 @@ def init_db():
 def send_telegram_alert(company, title, link):
     """Dispatches a formatted message directly to your Telegram Channel."""
     # FIXED: Added correct api.telegram.org subdomain and missing /bot routing path
-    url = f"https://telegram.org{TELEGRAM_BOT_TOKEN}/sendMessage"
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+
     message_body = (
         f"🚀 *New Job Opportunity for 2027 Batch!*\n\n"
         f"🏢 *Company:* {company}\n"
